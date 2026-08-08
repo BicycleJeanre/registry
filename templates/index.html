@@ -2,8 +2,11 @@
 
 {% block content %}
   <section class="hero">
-    <span class="brand-mark" aria-hidden="true">♡</span>
-    <h1 class="registry-title">Emilia-Rose’s Gift Registry</h1>
+    <div class="hero-copy">
+      <span class="brand-mark" aria-hidden="true">♡</span>
+      <h1 class="registry-title">Emilia-Rose’s Gift Registry</h1>
+      <p>A little list for our little lamb.</p>
+    </div>
   </section>
 
   <section class="event-summary" aria-label="Baby shower date">
@@ -55,6 +58,9 @@
       >
         <header class="category-header">
           <h2 id="category-{{ loop.index }}">{{ group.title }}</h2>
+          {% if group.note %}
+            <p>{{ group.note }}</p>
+          {% endif %}
         </header>
 
         <div class="item-list">

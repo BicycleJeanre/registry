@@ -10,7 +10,7 @@ import urllib.request
 
 BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8080").rstrip("/")
 SINGLE_ITEM = "00000000-0000-4000-8000-000000000012"
-MULTIPLE_ITEM = "00000000-0000-4000-8000-000000000053"
+MULTIPLE_ITEM = "00000000-0000-4000-8000-000000000086"
 TOKEN_PATTERN = re.compile(r'data-store-token="([^"]+)"')
 
 
@@ -77,9 +77,9 @@ def main():
         assert status == 303
         assert "notice=already_claimed" in headers["Location"]
 
-        multi_token_one = claim(MULTIPLE_ITEM, "Size 1 nappies")
+        multi_token_one = claim(MULTIPLE_ITEM, "Size 2 nappies")
         cleanup_tokens.append(multi_token_one)
-        multi_token_two = claim(MULTIPLE_ITEM, "Size 1 nappies")
+        multi_token_two = claim(MULTIPLE_ITEM, "Size 2 nappies")
         cleanup_tokens.append(multi_token_two)
 
         undo(single_token)

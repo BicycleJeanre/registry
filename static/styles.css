@@ -1,16 +1,17 @@
 :root {
   color-scheme: light;
-  --ink: #3d2630;
-  --muted: #7c5f6b;
-  --paper: #fffafd;
-  --canvas: #fff1f6;
-  --line: #edcfdb;
-  --accent: #c35f87;
-  --accent-dark: #963f63;
-  --soft-green: #f8dfe9;
-  --green: #963f63;
-  --soft-gold: #fde1eb;
-  --shadow: 0 10px 28px rgb(121 54 80 / 10%);
+  --ink: #394130;
+  --muted: #6f765f;
+  --paper: #fffdf7;
+  --canvas: #eef1e3;
+  --line: #d9deca;
+  --accent: #7f9167;
+  --accent-dark: #586c46;
+  --soft-green: #e4ead6;
+  --green: #586c46;
+  --soft-gold: #f6ead6;
+  --blush: #dca5a0;
+  --shadow: 0 10px 28px rgb(66 78 50 / 10%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
 }
@@ -23,8 +24,8 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at top right, rgb(244 178 207 / 48%), transparent 30rem),
-    radial-gradient(circle at bottom left, rgb(255 218 232 / 55%), transparent 34rem),
+    radial-gradient(circle at top right, rgb(203 214 181 / 62%), transparent 30rem),
+    radial-gradient(circle at bottom left, rgb(239 211 200 / 38%), transparent 34rem),
     var(--canvas);
   min-height: 100vh;
 }
@@ -44,8 +45,9 @@ a {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  color: white;
-  background: var(--accent);
+  color: var(--accent-dark);
+  background: rgb(255 253 247 / 78%);
+  border: 1px solid rgb(127 145 103 / 42%);
   font-size: 1.35rem;
 }
 
@@ -57,10 +59,36 @@ a {
 
 .hero {
   width: 100%;
-  padding: 1.5rem 0 2rem;
+  min-height: 18rem;
+  margin: 0 0 1.25rem;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(90deg, rgb(255 253 247 / 98%) 0%, rgb(255 253 247 / 86%) 42%, transparent 70%),
+    url("emilia-rose-sheep-hero.jpg") 58% 59% / cover no-repeat;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(65%, 42rem);
+}
+
+.hero-copy .brand-mark {
+  margin-bottom: 0.8rem;
+}
+
+.hero-copy p {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-style: italic;
 }
 
 .eyebrow {
@@ -88,13 +116,14 @@ h1 {
 
 .registry-title {
   min-width: 0;
-  font-size: clamp(1.3rem, 5.6vw, 4.35rem);
+  color: var(--accent-dark);
+  font-size: clamp(1.8rem, 4.8vw, 4rem);
   overflow-wrap: normal;
   white-space: nowrap;
 }
 
 .event-summary {
-  margin: -0.75rem 0 1.5rem;
+  margin: 0 0 1.5rem;
   padding: 1rem 1.15rem;
   display: flex;
   align-items: center;
@@ -102,7 +131,7 @@ h1 {
   gap: 1rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
-  background: rgb(255 250 253 / 82%);
+  background: rgb(255 253 247 / 88%);
   box-shadow: var(--shadow);
 }
 
@@ -172,13 +201,27 @@ h1 {
 .category-header {
   padding: 1.1rem 1.25rem;
   border-bottom: 1px solid var(--line);
-  background: rgb(255 234 243 / 72%);
+  background: rgb(228 234 214 / 72%);
 }
 
 .category-header h2 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.5rem;
+}
+
+.category-header h2::before {
+  content: "♥";
+  margin-right: 0.55rem;
+  color: var(--accent);
+  font-size: 0.72em;
+}
+
+.category-header p {
+  margin: 0.35rem 0 0 1.45rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.4;
 }
 
 .item-list {
@@ -201,7 +244,7 @@ h1 {
 }
 
 .item-row-claimed {
-  background: rgb(248 223 233 / 50%);
+  background: rgb(228 234 214 / 56%);
 }
 
 .item-summary h3 {
@@ -237,7 +280,7 @@ h1 {
 .custom-item-form {
   padding: 1.25rem;
   border-top: 1px solid var(--line);
-  background: rgb(255 244 249 / 72%);
+  background: rgb(244 247 235 / 78%);
 }
 
 .custom-item-label {
@@ -333,7 +376,7 @@ h1 {
 .remove-item-button:focus-visible,
 input:focus-visible,
 a:focus-visible {
-  outline: 3px solid #e58bae;
+  outline: 3px solid #aebf91;
   outline-offset: 3px;
 }
 
@@ -386,8 +429,11 @@ a:focus-visible {
   }
 
   .hero {
-    gap: 0.45rem;
-    padding-top: 1rem;
+    min-height: 13rem;
+    padding: 1rem;
+    background:
+      linear-gradient(90deg, rgb(255 253 247 / 98%) 0%, rgb(255 253 247 / 88%) 50%, rgb(255 253 247 / 12%) 82%),
+      url("emilia-rose-sheep-hero.jpg") 63% 56% / cover no-repeat;
   }
 
   .hero .brand-mark {
@@ -397,7 +443,16 @@ a:focus-visible {
   }
 
   .registry-title {
-    font-size: clamp(1.05rem, 5.5vw, 2.25rem);
+    font-size: clamp(1.05rem, 5.3vw, 2.25rem);
+  }
+
+  .hero-copy {
+    width: 76%;
+  }
+
+  .hero-copy p {
+    max-width: 12rem;
+    font-size: 0.9rem;
   }
 
   .event-summary {

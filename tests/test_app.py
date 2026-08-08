@@ -30,10 +30,10 @@ def client(monkeypatch):
                 "display_order": 10,
             },
             {
-                "id": "33333333-3333-4333-8333-333333333333",
-                "title": "Newborn nappies (1–3 packs)",
+                "id": "00000000-0000-4000-8000-000000000086",
+                "title": "Size 2 nappies (approximately 3–8 kg)",
                 "description": "Test nappies.",
-                "category": "Everyday essentials",
+                "category": "Care and bath",
                 "purchase_url": None,
                 "claim_mode": "multiple",
                 "claim_count": 2,
@@ -96,8 +96,12 @@ def test_homepage_is_mobile_ready(client):
     assert "Clothing (0–3 months)".encode() in response.data
     assert b">Clothing</h2>" in response.data
     assert b"Bath toys" in response.data
-    assert "Parents’ irritation".encode() in response.data
+    assert b"Play &amp; other" in response.data
+    assert b"Care &amp; bath" in response.data
+    assert b"no newborn nappies, please" in response.data
     assert "Emilia-Rose’s Gift Registry".encode() in response.data
+    assert b"emilia-rose-sheep-hero" not in response.data
+    assert b"A little list for our little lamb" in response.data
     assert "baby shower on October 31st".encode() in response.data
     assert b"84</strong>" in response.data
     assert b"days remaining" in response.data
@@ -114,7 +118,7 @@ def test_homepage_is_mobile_ready(client):
     assert b"data-registry-item" in response.data
     assert b"2</strong> of 3 claimed" in response.data
     assert b"items</span>" not in response.data
-    assert b"/items/33333333-3333-4333-8333-333333333333/unclaim" in response.data
+    assert b"/items/00000000-0000-4000-8000-000000000086/unclaim" in response.data
 
 
 def test_claim_records_claim_without_showing_private_code(client, monkeypatch):
@@ -157,7 +161,7 @@ def test_limited_item_rejects_claim_after_limit(client, monkeypatch):
     )
 
     response = client.post(
-        "/items/33333333-3333-4333-8333-333333333333/claim",
+        "/items/00000000-0000-4000-8000-000000000086/claim",
         follow_redirects=False,
     )
 

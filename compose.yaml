@@ -31,6 +31,7 @@ services:
       - ./db/013-add-claim-limits.sql:/docker-entrypoint-initdb.d/013-add-claim-limits.sql:ro,Z
       - ./db/014-add-custom-items.sql:/docker-entrypoint-initdb.d/014-add-custom-items.sql:ro,Z
       - ./db/015-remove-custom-items.sql:/docker-entrypoint-initdb.d/015-remove-custom-items.sql:ro,Z
+      - ./db/016-merge-afrikaans-wish-lists.sql:/docker-entrypoint-initdb.d/016-merge-afrikaans-wish-lists.sql:ro,Z
     restart: unless-stopped
 
   app:

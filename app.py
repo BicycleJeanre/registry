@@ -16,15 +16,25 @@ BABY_SHOWER_DATE = date(2026, 10, 31)
 SOUTH_AFRICA_TIME = timezone(timedelta(hours=2))
 
 ITEM_GROUPS = (
-    ("Sleep & nursery", {"Sleep", "Nursery"}),
-    ("Changing & travel", {"Changing and travel", "Getting around"}),
-    ("Care", {"Bath and care", "Health and care"}),
-    ("Clothing", {"Clothing"}),
-    ("Parents’ irritation", {"Parents irritation"}),
     ("Feeding", {"Feeding"}),
-    ("Everyday essentials", {"Everyday essentials"}),
+    (
+        "Care & bath",
+        {"Care and bath", "Bath and care", "Health and care", "Everyday essentials"},
+    ),
+    ("Clothing", {"Clothing"}),
+    ("Sleep", {"Sleep", "Nursery"}),
+    ("Out & about", {"Out and about", "Changing and travel", "Getting around"}),
+    ("Play & other", {"Play and other", "Parents irritation"}),
+    ("For Mom", {"For Mom"}),
     (CUSTOM_ITEM_CATEGORY, {CUSTOM_ITEM_CATEGORY}),
 )
+
+ITEM_GROUP_NOTES = {
+    "Care & bath": (
+        "Nappies are welcome in sizes 2, 3 and 4 only — no newborn nappies, please."
+    ),
+    "For Mom": "A few thoughtful comforts for Bernice.",
+}
 
 
 @contextmanager
@@ -150,6 +160,7 @@ def group_items(items):
                     "title": title,
                     "items": group_items_for_title,
                     "allows_custom_items": title == CUSTOM_ITEM_CATEGORY,
+                    "note": ITEM_GROUP_NOTES.get(title),
                 }
             )
             assigned_categories.update(categories)
@@ -158,7 +169,7 @@ def group_items(items):
         item for item in items if item["category"] not in assigned_categories
     ]
     if remaining_items:
-        grouped.append({"title": "Other", "items": remaining_items})
+        grouped.append({"title": "Other", "items": remaining_items, "note": None})
 
     return grouped
 
