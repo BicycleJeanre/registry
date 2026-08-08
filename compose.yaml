@@ -1,4 +1,4 @@
-name: baby-registry
+name: ${REGISTRY_PROJECT_NAME:-baby-registry}
 
 services:
   database:
@@ -7,6 +7,7 @@ services:
       POSTGRES_DB: registry
       POSTGRES_USER: registry
       POSTGRES_PASSWORD: ${REGISTRY_DB_PASSWORD:-registry-local-only}
+      REGISTRY_APP_DB_PASSWORD: ${REGISTRY_APP_DB_PASSWORD:-registry-app-local-only}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U registry -d registry"]
       interval: 2s
@@ -14,7 +15,8 @@ services:
       retries: 20
     volumes:
       - registry-data:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro,Z
+      - ./db/001-init.sh:/docker-entrypoint-initdb.d/001-init.sh:ro,Z
+      - ./db/init.sql:/registry-init/init.sql:ro,Z
       - ./db/002-buying-checklist-items.sql:/docker-entrypoint-initdb.d/002-buying-checklist-items.sql:ro,Z
       - ./db/003-public-unclaim.sql:/docker-entrypoint-initdb.d/003-public-unclaim.sql:ro,Z
       - ./db/004-hide-large-items.sql:/docker-entrypoint-initdb.d/004-hide-large-items.sql:ro,Z
@@ -36,7 +38,10 @@ services:
       context: .
       dockerfile: Containerfile
     environment:
-      DATABASE_URL: postgresql://registry_app:registry-app-local-only@database:5432/registry
+      REGISTRY_DB_HOST: database
+      REGISTRY_DB_NAME: registry
+      REGISTRY_DB_USER: registry_app
+      REGISTRY_APP_DB_PASSWORD: ${REGISTRY_APP_DB_PASSWORD:-registry-app-local-only}
     depends_on:
       database:
         condition: service_healthy
@@ -50,7 +55,7 @@ services:
       timeout: 3s
       retries: 12
     ports:
-      - "${REGISTRY_PORT:-8080}:8080"
+      - "${REGISTRY_BIND_ADDRESS:-0.0.0.0}:${REGISTRY_PORT:-8080}:8080"
     restart: unless-stopped
 
 volumes:

@@ -31,6 +31,9 @@ To use another local port:
 REGISTRY_PORT=8081 podman compose up --build --detach
 ```
 
+The bind address defaults to `0.0.0.0` for local phone testing. Set
+`REGISTRY_BIND_ADDRESS=127.0.0.1` when placing the app behind a reverse proxy.
+
 ## Verify the stack
 
 The smoke test uses only synthetic registry entries and prints pass/fail
@@ -93,6 +96,9 @@ available only on the private Compose network; it has no host port.
 The app connects using a constrained local role that can read the public item
 view and execute only the claim and undo functions. The checked-in credentials
 are deliberately local-only and must be replaced before any remote deployment.
+
+Pyramid Demo deployment files and the isolated Nginx virtual host are in
+`deployment/`.
 
 Postgres serializes claims per item inside `registry.create_claim`, preventing
 two simultaneous visitors from both claiming a single-claim item. Undo tokens

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import html
+import os
 import re
 import sys
 import urllib.error
@@ -7,7 +8,7 @@ import urllib.parse
 import urllib.request
 
 
-BASE_URL = "http://127.0.0.1:8080"
+BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8080").rstrip("/")
 SINGLE_ITEM = "00000000-0000-4000-8000-000000000012"
 MULTIPLE_ITEM = "00000000-0000-4000-8000-000000000053"
 TOKEN_PATTERN = re.compile(r'data-store-token="([^"]+)"')

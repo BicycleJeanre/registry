@@ -2,7 +2,7 @@ create extension if not exists pgcrypto;
 
 create schema if not exists registry;
 
-create role registry_app login password 'registry-app-local-only';
+create role registry_app login password :'registry_app_password';
 
 create type registry.claim_mode as enum ('single', 'multiple');
 

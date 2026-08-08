@@ -29,11 +29,22 @@ ITEM_GROUPS = (
 
 @contextmanager
 def database():
-    connection = psycopg.connect(
-        os.environ["DATABASE_URL"],
-        row_factory=dict_row,
-        connect_timeout=5,
-    )
+    database_url = os.environ.get("DATABASE_URL")
+    if database_url:
+        connection = psycopg.connect(
+            database_url,
+            row_factory=dict_row,
+            connect_timeout=5,
+        )
+    else:
+        connection = psycopg.connect(
+            host=os.environ.get("REGISTRY_DB_HOST", "database"),
+            dbname=os.environ.get("REGISTRY_DB_NAME", "registry"),
+            user=os.environ.get("REGISTRY_DB_USER", "registry_app"),
+            password=os.environ["REGISTRY_APP_DB_PASSWORD"],
+            row_factory=dict_row,
+            connect_timeout=5,
+        )
     try:
         yield connection
         connection.commit()
