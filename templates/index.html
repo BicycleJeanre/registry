@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="hero">
+    <span class="brand-mark" aria-hidden="true">♡</span>
+    <h1 class="registry-title">Emilia-Rose’s Gift Registry</h1>
+  </section>
+
+  <section class="event-summary" aria-label="Baby shower date">
+    <p class="event-copy">
+      This registry is for Emilia-Rose’s baby shower on October 31st.
+    </p>
+    <p class="event-countdown">
+      {% if baby_shower.has_passed %}
+        The celebration has arrived
+      {% elif baby_shower.is_today %}
+        It’s today!
+      {% else %}
+        <strong>{{ baby_shower.days_remaining }}</strong>
+        day{% if baby_shower.days_remaining != 1 %}s{% endif %} remaining
+      {% endif %}
+    </p>
+  </section>
+
+  {% if notice == "already_claimed" %}
+    <div class="notice notice-warning" role="status">
+      Someone else just covered that item. Please choose another.
+    </div>
+  {% elif notice == "claim_limit_reached" %}
+    <div class="notice notice-warning" role="status">
+      That item has reached its claim limit.
+    </div>
+  {% elif notice == "unclaimed" %}
+    <div class="notice notice-success" role="status">One claim was removed.</div>
+  {% elif notice == "custom_item_added" %}
+    <div class="notice notice-success" role="status">Your item was added.</div>
+  {% elif notice == "invalid_custom_item" %}
+    <div class="notice notice-warning" role="status">
+      Please enter an item name between 2 and 120 characters.
+    </div>
+  {% elif notice == "custom_item_removed" %}
+    <div class="notice notice-success" role="status">The item was removed.</div>
+  {% elif notice == "item_not_removable" %}
+    <div class="notice notice-warning" role="status">
+      That item cannot be removed.
+    </div>
+  {% endif %}
+
+  <section class="category-stack" aria-label="Registry items">
+    {% for group in item_groups %}
+      <section
+        class="category-card"
+        {% if group.allows_custom_items %}id="missed-items"{% endif %}
+        aria-labelledby="category-{{ loop.index }}"
+      >
+        <header class="category-header">
+          <h2 id="category-{{ loop.index }}">{{ group.title }}</h2>
+        </header>
+
+        <div class="item-list">
+          {% for item in group["items"] %}
+            <article
+              class="item-row{% if not item.is_available %} item-row-claimed{% endif %}"
+              id="item-{{ item.id }}"
+              data-registry-item
+              data-item-id="{{ item.id }}"
+              data-item-title="{{ item.title }}"
+            >
+              <div class="item-summary">
+                <h3>{{ item.title }}</h3>
+                {% if item.max_claims %}
+                  <p><strong class="claim-count">{{ item.claim_count }}</strong> of {{ item.max_claims }} claimed</p>
+                {% elif item.claim_mode == "multiple" %}
+                  <p><strong class="claim-count">{{ item.claim_count }}</strong> claimed · more welcome</p>
+                {% elif item.is_available %}
+                  <p>Available</p>
+                {% else %}
+                  <p>Covered</p>
+                {% endif %}
+              </div>
+
+              <div class="item-action" data-item-action>
+                {% if item.is_available %}
+                  <form class="claim-form" action="{{ url_for('claim_item', item_id=item.id) }}" method="post">
+                    <input type="hidden" name="item_title" value="{{ item.title }}">
+                    <button class="button button-primary button-compact" type="submit">
+                      I’ve got this
+                    </button>
+                  </form>
+                {% else %}
+                  {% if item.max_claims %}
+                    <span class="covered-label">Limit reached ✓</span>
+                  {% else %}
+                    <span class="covered-label">Covered ✓</span>
+                  {% endif %}
+                {% endif %}
+                {% if item.claim_count > 0 %}
+                  <form class="unclaim-form" action="{{ url_for('unclaim_item', item_id=item.id) }}" method="post">
+                    <button class="unclaim-button" type="submit">Unclaim</button>
+                  </form>
+                {% endif %}
+                {% if item.category == custom_item_category %}
+                  <form class="remove-item-form" action="{{ url_for('remove_item', item_id=item.id) }}" method="post">
+                    <button class="remove-item-button" type="submit">Remove item</button>
+                  </form>
+                {% endif %}
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% if group.allows_custom_items %}
+          <form class="custom-item-form" action="{{ url_for('add_item') }}" method="post">
+            <label class="custom-item-label" for="custom-item-title">
+              Add something we missed
+            </label>
+            <div class="custom-item-controls">
+              <input
+                class="custom-item-input"
+                id="custom-item-title"
+                name="title"
+                type="text"
+                minlength="2"
+                maxlength="120"
+                placeholder="Item name"
+                autocomplete="off"
+                required
+              >
+              <button class="button button-primary" type="submit">Add item</button>
+            </div>
+          </form>
+        {% endif %}
+      </section>
+    {% endfor %}
+  </section>
+{% endblock %}

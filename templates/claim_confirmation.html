@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Claim recorded · Baby Register for Emilia-Rose{% endblock %}
+
+{% block content %}
+  <section
+    class="result-card"
+    data-store-token="{{ undo_token }}"
+    data-item-id="{{ item_id }}"
+    data-item-title="{{ item_title }}"
+  >
+    <span class="result-icon" aria-hidden="true">✓</span>
+    <p class="eyebrow">Claim recorded</p>
+    <h1>Thank you for covering {{ item_title }}</h1>
+    <p>Your claim has been recorded.</p>
+
+    <div class="result-actions">
+      <a class="button button-primary" href="{{ url_for('index') }}">Back to registry</a>
+    </div>
+  </section>
+{% endblock %}

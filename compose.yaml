@@ -1,0 +1,57 @@
+name: baby-registry
+
+services:
+  database:
+    image: docker.io/library/postgres:17-alpine
+    environment:
+      POSTGRES_DB: registry
+      POSTGRES_USER: registry
+      POSTGRES_PASSWORD: ${REGISTRY_DB_PASSWORD:-registry-local-only}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U registry -d registry"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - registry-data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro,Z
+      - ./db/002-buying-checklist-items.sql:/docker-entrypoint-initdb.d/002-buying-checklist-items.sql:ro,Z
+      - ./db/003-public-unclaim.sql:/docker-entrypoint-initdb.d/003-public-unclaim.sql:ro,Z
+      - ./db/004-hide-large-items.sql:/docker-entrypoint-initdb.d/004-hide-large-items.sql:ro,Z
+      - ./db/005-refine-item-names.sql:/docker-entrypoint-initdb.d/005-refine-item-names.sql:ro,Z
+      - ./db/006-add-clothing.sql:/docker-entrypoint-initdb.d/006-add-clothing.sql:ro,Z
+      - ./db/007-add-toys.sql:/docker-entrypoint-initdb.d/007-add-toys.sql:ro,Z
+      - ./db/008-hide-newborn-clothing-and-pump.sql:/docker-entrypoint-initdb.d/008-hide-newborn-clothing-and-pump.sql:ro,Z
+      - ./db/009-correct-pump-removal.sql:/docker-entrypoint-initdb.d/009-correct-pump-removal.sql:ro,Z
+      - ./db/010-add-more-essentials.sql:/docker-entrypoint-initdb.d/010-add-more-essentials.sql:ro,Z
+      - ./db/011-split-bottle-teats-and-refine-bedding.sql:/docker-entrypoint-initdb.d/011-split-bottle-teats-and-refine-bedding.sql:ro,Z
+      - ./db/012-refine-nappies-and-feeding.sql:/docker-entrypoint-initdb.d/012-refine-nappies-and-feeding.sql:ro,Z
+      - ./db/013-add-claim-limits.sql:/docker-entrypoint-initdb.d/013-add-claim-limits.sql:ro,Z
+      - ./db/014-add-custom-items.sql:/docker-entrypoint-initdb.d/014-add-custom-items.sql:ro,Z
+      - ./db/015-remove-custom-items.sql:/docker-entrypoint-initdb.d/015-remove-custom-items.sql:ro,Z
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      dockerfile: Containerfile
+    environment:
+      DATABASE_URL: postgresql://registry_app:registry-app-local-only@database:5432/registry
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    ports:
+      - "${REGISTRY_PORT:-8080}:8080"
+    restart: unless-stopped
+
+volumes:
+  registry-data:

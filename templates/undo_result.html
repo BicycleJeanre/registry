@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Undo claim · Baby Register for Emilia-Rose{% endblock %}
+
+{% block content %}
+  <section
+    class="result-card"
+    {% if released %}data-remove-token="{{ undo_token }}"{% endif %}
+  >
+    {% if released %}
+      <span class="result-icon" aria-hidden="true">✓</span>
+      <p class="eyebrow">Claim undone</p>
+      <h1>The item is available again</h1>
+      <p>Your claim has been removed.</p>
+    {% elif invalid %}
+      <p class="eyebrow">Unable to unclaim</p>
+      <h1>That claim could not be removed</h1>
+      <p>Please return to the register and try again.</p>
+    {% else %}
+      <p class="eyebrow">Unable to unclaim</p>
+      <h1>That claim could not be undone</h1>
+      <p>It may already have been removed.</p>
+    {% endif %}
+
+    <div class="result-actions">
+      <a class="button button-primary" href="{{ url_for('index') }}">Back to register</a>
+    </div>
+  </section>
+{% endblock %}
