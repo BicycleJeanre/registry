@@ -258,6 +258,12 @@ def test_baby_shower_countdown():
     }
 
 
+def test_for_mom_note_uses_generic_label():
+    assert registry_app.ITEM_GROUP_NOTES["For Mom"] == (
+        "A few thoughtful comforts for Mom."
+    )
+
+
 def test_valid_undo_releases_claim(client, monkeypatch):
     monkeypatch.setattr(registry_app, "release_claim", lambda token: True)
 

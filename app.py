@@ -33,7 +33,7 @@ ITEM_GROUP_NOTES = {
     "Care & bath": (
         "Nappies are welcome in sizes 2, 3 and 4 only — no newborn nappies, please."
     ),
-    "For Mom": "A few thoughtful comforts for Bernice.",
+    "For Mom": "A few thoughtful comforts for Mom.",
 }
 
 
