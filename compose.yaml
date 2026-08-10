@@ -35,6 +35,7 @@ services:
       - ./db/017-trim-for-mom-items.sql:/docker-entrypoint-initdb.d/017-trim-for-mom-items.sql:ro,Z
       - ./db/018-refine-care-essentials.sql:/docker-entrypoint-initdb.d/018-refine-care-essentials.sql:ro,Z
       - ./db/019-add-standard-cot-mattresses.sql:/docker-entrypoint-initdb.d/019-add-standard-cot-mattresses.sql:ro,Z
+      - ./db/020-replace-mattresses-with-linen.sql:/docker-entrypoint-initdb.d/020-replace-mattresses-with-linen.sql:ro,Z
     restart: unless-stopped
 
   app:
