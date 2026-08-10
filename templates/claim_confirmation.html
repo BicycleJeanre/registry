@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}Claim recorded · Baby Register for Emilia-Rose{% endblock %}
+{% block title_en %}Claim recorded · Baby Register for Emilia-Rose{% endblock %}
+{% block title_af %}Eis aangeteken · Babaregister vir Emilia-Rose{% endblock %}
 
 {% block content %}
   <section
@@ -10,12 +11,15 @@
     data-item-title="{{ item_title }}"
   >
     <span class="result-icon" aria-hidden="true">✓</span>
-    <p class="eyebrow">Claim recorded</p>
-    <h1>Thank you for covering {{ item_title }}</h1>
-    <p>Your claim has been recorded.</p>
+    <p class="eyebrow" data-i18n-en="Claim recorded" data-i18n-af="Eis aangeteken">Claim recorded</p>
+    <h1
+      data-i18n-en="Thank you for covering {{ item_title }}"
+      data-i18n-af="Dankie dat jy {{ item_title_af }} dek"
+    >Thank you for covering {{ item_title }}</h1>
+    <p data-i18n-en="Your claim has been recorded." data-i18n-af="Jou eis is aangeteken.">Your claim has been recorded.</p>
 
     <div class="result-actions">
-      <a class="button button-primary" href="{{ url_for('index') }}">Back to registry</a>
+      <a class="button button-primary" href="{{ url_for('index') }}" data-i18n-en="Back to registry" data-i18n-af="Terug na register">Back to registry</a>
     </div>
   </section>
 {% endblock %}

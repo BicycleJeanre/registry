@@ -4,52 +4,69 @@
   <section class="hero">
     <div class="hero-copy">
       <span class="brand-mark" aria-hidden="true">♡</span>
-      <h1 class="registry-title">Emilia-Rose’s Gift Registry</h1>
-      <p>A little list for our little lamb.</p>
+      <h1
+        class="registry-title"
+        data-i18n-en="Emilia-Rose’s Gift Registry"
+        data-i18n-af="Emilia-Rose se Geskenkregister"
+      >Emilia-Rose’s Gift Registry</h1>
+      <p
+        data-i18n-en="A little list for our little lamb."
+        data-i18n-af="’n Klein lysie vir ons klein lammetjie."
+      >A little list for our little lamb.</p>
     </div>
   </section>
 
-  <section class="event-summary" aria-label="Baby shower date">
-    <p class="event-copy">
-      This registry is for Emilia-Rose’s baby shower on October 31st.
-    </p>
+  <section
+    class="event-summary"
+    aria-label="Baby shower date"
+    data-i18n-aria-label-en="Baby shower date"
+    data-i18n-aria-label-af="Datum van ooievaarstee"
+  >
+    <p
+      class="event-copy"
+      data-i18n-en="This registry is for Emilia-Rose’s baby shower on October 31st."
+      data-i18n-af="Hierdie register is vir Emilia-Rose se ooievaarstee op 31 Oktober."
+    >This registry is for Emilia-Rose’s baby shower on October 31st.</p>
     <p class="event-countdown">
       {% if baby_shower.has_passed %}
-        The celebration has arrived
+        <span data-i18n-en="The celebration has arrived" data-i18n-af="Die viering het aangebreek">The celebration has arrived</span>
       {% elif baby_shower.is_today %}
-        It’s today!
+        <span data-i18n-en="It’s today!" data-i18n-af="Dis vandag!">It’s today!</span>
       {% else %}
         <strong>{{ baby_shower.days_remaining }}</strong>
-        day{% if baby_shower.days_remaining != 1 %}s{% endif %} remaining
+        <span
+          data-i18n-en="day{% if baby_shower.days_remaining != 1 %}s{% endif %} remaining"
+          data-i18n-af="dag{% if baby_shower.days_remaining != 1 %}e{% endif %} oor"
+        >day{% if baby_shower.days_remaining != 1 %}s{% endif %} remaining</span>
       {% endif %}
     </p>
   </section>
 
   {% if notice == "already_claimed" %}
     <div class="notice notice-warning" role="status">
-      Someone else just covered that item. Please choose another.
+      <span data-i18n-en="Someone else just covered that item. Please choose another." data-i18n-af="Iemand anders het pas daardie item gedek. Kies asseblief ’n ander een.">Someone else just covered that item. Please choose another.</span>
     </div>
   {% elif notice == "claim_limit_reached" %}
     <div class="notice notice-warning" role="status">
-      That item has reached its claim limit.
+      <span data-i18n-en="That item has reached its claim limit." data-i18n-af="Daardie item het sy eislimiet bereik.">That item has reached its claim limit.</span>
     </div>
   {% elif notice == "unclaimed" %}
-    <div class="notice notice-success" role="status">One claim was removed.</div>
+    <div class="notice notice-success" role="status" data-i18n-en="One claim was removed." data-i18n-af="Een eis is verwyder.">One claim was removed.</div>
   {% elif notice == "custom_item_added" %}
-    <div class="notice notice-success" role="status">Your item was added.</div>
+    <div class="notice notice-success" role="status" data-i18n-en="Your item was added." data-i18n-af="Jou item is bygevoeg.">Your item was added.</div>
   {% elif notice == "invalid_custom_item" %}
     <div class="notice notice-warning" role="status">
-      Please enter an item name between 2 and 120 characters.
+      <span data-i18n-en="Please enter an item name between 2 and 120 characters." data-i18n-af="Voer asseblief ’n itemnaam van tussen 2 en 120 karakters in.">Please enter an item name between 2 and 120 characters.</span>
     </div>
   {% elif notice == "custom_item_removed" %}
-    <div class="notice notice-success" role="status">The item was removed.</div>
+    <div class="notice notice-success" role="status" data-i18n-en="The item was removed." data-i18n-af="Die item is verwyder.">The item was removed.</div>
   {% elif notice == "item_not_removable" %}
     <div class="notice notice-warning" role="status">
-      That item cannot be removed.
+      <span data-i18n-en="That item cannot be removed." data-i18n-af="Daardie item kan nie verwyder word nie.">That item cannot be removed.</span>
     </div>
   {% endif %}
 
-  <section class="category-stack" aria-label="Registry items">
+  <section class="category-stack" aria-label="Registry items" data-i18n-aria-label-en="Registry items" data-i18n-aria-label-af="Registeritems">
     {% for group in item_groups %}
       <details
         class="category-card"
@@ -64,9 +81,11 @@
               id="category-{{ loop.index }}"
               role="heading"
               aria-level="2"
+              data-i18n-en="{{ group.title }}"
+              data-i18n-af="{{ group.title_af }}"
             >{{ group.title }}</span>
             {% if group.note %}
-              <span class="category-note">{{ group.note }}</span>
+              <span class="category-note" data-i18n-en="{{ group.note }}" data-i18n-af="{{ group.note_af }}">{{ group.note }}</span>
             {% endif %}
           </span>
           <span class="category-toggle" aria-hidden="true"></span>
@@ -82,15 +101,15 @@
               data-item-title="{{ item.title }}"
             >
               <div class="item-summary">
-                <h3>{{ item.title }}</h3>
+                <h3 data-i18n-en="{{ item.title }}" data-i18n-af="{{ item.title_af }}">{{ item.title }}</h3>
                 {% if item.max_claims %}
-                  <p><strong class="claim-count">{{ item.claim_count }}</strong> of {{ item.max_claims }} claimed</p>
+                  <p><strong class="claim-count">{{ item.claim_count }}</strong> <span data-i18n-en="of {{ item.max_claims }} claimed" data-i18n-af="van {{ item.max_claims }} opgeëis">of {{ item.max_claims }} claimed</span></p>
                 {% elif item.claim_mode == "multiple" %}
-                  <p><strong class="claim-count">{{ item.claim_count }}</strong> claimed · more welcome</p>
+                  <p><strong class="claim-count">{{ item.claim_count }}</strong> <span data-i18n-en="claimed · more welcome" data-i18n-af="opgeëis · nog is welkom">claimed · more welcome</span></p>
                 {% elif item.is_available %}
-                  <p>Available</p>
+                  <p data-i18n-en="Available" data-i18n-af="Beskikbaar">Available</p>
                 {% else %}
-                  <p>Covered</p>
+                  <p data-i18n-en="Covered" data-i18n-af="Gedek">Covered</p>
                 {% endif %}
               </div>
 
@@ -99,24 +118,24 @@
                   <form class="claim-form" action="{{ url_for('claim_item', item_id=item.id) }}" method="post">
                     <input type="hidden" name="item_title" value="{{ item.title }}">
                     <button class="button button-primary button-compact" type="submit">
-                      I’ve got this
+                      <span data-i18n-en="I can get this" data-i18n-af="Ek kan dit kry">I can get this</span>
                     </button>
                   </form>
                 {% else %}
                   {% if item.max_claims %}
-                    <span class="covered-label">Limit reached ✓</span>
+                    <span class="covered-label" data-i18n-en="Limit reached ✓" data-i18n-af="Limiet bereik ✓">Limit reached ✓</span>
                   {% else %}
-                    <span class="covered-label">Covered ✓</span>
+                    <span class="covered-label" data-i18n-en="Covered ✓" data-i18n-af="Gedek ✓">Covered ✓</span>
                   {% endif %}
                 {% endif %}
                 {% if item.claim_count > 0 %}
                   <form class="unclaim-form" action="{{ url_for('unclaim_item', item_id=item.id) }}" method="post">
-                    <button class="unclaim-button" type="submit">Unclaim</button>
+                    <button class="unclaim-button" type="submit" data-i18n-en="Unclaim" data-i18n-af="Maak eis ongedaan">Unclaim</button>
                   </form>
                 {% endif %}
                 {% if item.category == custom_item_category %}
                   <form class="remove-item-form" action="{{ url_for('remove_item', item_id=item.id) }}" method="post">
-                    <button class="remove-item-button" type="submit">Remove item</button>
+                    <button class="remove-item-button" type="submit" data-i18n-en="Remove item" data-i18n-af="Verwyder item">Remove item</button>
                   </form>
                 {% endif %}
               </div>
@@ -126,9 +145,7 @@
 
         {% if group.allows_custom_items %}
           <form class="custom-item-form" action="{{ url_for('add_item') }}" method="post">
-            <label class="custom-item-label" for="custom-item-title">
-              Add something we missed
-            </label>
+            <label class="custom-item-label" for="custom-item-title" data-i18n-en="Add something we missed" data-i18n-af="Voeg iets by wat ons gemis het">Add something we missed</label>
             <div class="custom-item-controls">
               <input
                 class="custom-item-input"
@@ -138,10 +155,12 @@
                 minlength="2"
                 maxlength="120"
                 placeholder="Item name"
+                data-i18n-placeholder-en="Item name"
+                data-i18n-placeholder-af="Itemnaam"
                 autocomplete="off"
                 required
               >
-              <button class="button button-primary" type="submit">Add item</button>
+              <button class="button button-primary" type="submit" data-i18n-en="Add item" data-i18n-af="Voeg item by">Add item</button>
             </div>
           </form>
         {% endif %}

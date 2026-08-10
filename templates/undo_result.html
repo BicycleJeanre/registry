@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}Undo claim · Baby Register for Emilia-Rose{% endblock %}
+{% block title_en %}Undo claim · Baby Register for Emilia-Rose{% endblock %}
+{% block title_af %}Maak eis ongedaan · Babaregister vir Emilia-Rose{% endblock %}
 
 {% block content %}
   <section
@@ -9,21 +10,21 @@
   >
     {% if released %}
       <span class="result-icon" aria-hidden="true">✓</span>
-      <p class="eyebrow">Claim undone</p>
-      <h1>The item is available again</h1>
-      <p>Your claim has been removed.</p>
+      <p class="eyebrow" data-i18n-en="Claim undone" data-i18n-af="Eis ongedaan gemaak">Claim undone</p>
+      <h1 data-i18n-en="The item is available again" data-i18n-af="Die item is weer beskikbaar">The item is available again</h1>
+      <p data-i18n-en="Your claim has been removed." data-i18n-af="Jou eis is verwyder.">Your claim has been removed.</p>
     {% elif invalid %}
-      <p class="eyebrow">Unable to unclaim</p>
-      <h1>That claim could not be removed</h1>
-      <p>Please return to the register and try again.</p>
+      <p class="eyebrow" data-i18n-en="Unable to unclaim" data-i18n-af="Kan nie die eis ongedaan maak nie">Unable to unclaim</p>
+      <h1 data-i18n-en="That claim could not be removed" data-i18n-af="Daardie eis kon nie verwyder word nie">That claim could not be removed</h1>
+      <p data-i18n-en="Please return to the registry and try again." data-i18n-af="Gaan asseblief terug na die register en probeer weer.">Please return to the registry and try again.</p>
     {% else %}
-      <p class="eyebrow">Unable to unclaim</p>
-      <h1>That claim could not be undone</h1>
-      <p>It may already have been removed.</p>
+      <p class="eyebrow" data-i18n-en="Unable to unclaim" data-i18n-af="Kan nie die eis ongedaan maak nie">Unable to unclaim</p>
+      <h1 data-i18n-en="That claim could not be undone" data-i18n-af="Daardie eis kon nie ongedaan gemaak word nie">That claim could not be undone</h1>
+      <p data-i18n-en="It may already have been removed." data-i18n-af="Dit is moontlik reeds verwyder.">It may already have been removed.</p>
     {% endif %}
 
     <div class="result-actions">
-      <a class="button button-primary" href="{{ url_for('index') }}">Back to register</a>
+      <a class="button button-primary" href="{{ url_for('index') }}" data-i18n-en="Back to registry" data-i18n-af="Terug na register">Back to registry</a>
     </div>
   </section>
 {% endblock %}

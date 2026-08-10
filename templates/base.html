@@ -4,10 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#eef1e3">
-    <title>{% block title %}Baby Register for Emilia-Rose{% endblock %}</title>
+    <title>{% block title_en %}Baby Register for Emilia-Rose{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='translations.js') }}" defer></script>
   </head>
-  <body>
+  <body
+    data-title-en="{{ self.title_en() | striptags }}"
+    data-title-af="{% block title_af %}Babaregister vir Emilia-Rose{% endblock %}"
+  >
+    <div class="language-bar">
+      <button
+        class="language-toggle"
+        id="language-toggle"
+        type="button"
+        aria-pressed="false"
+      >
+        <span class="language-toggle-icon" aria-hidden="true">文</span>
+        <span
+          data-language-toggle-label
+          data-i18n-en="Afrikaans"
+          data-i18n-af="English"
+        >Afrikaans</span>
+      </button>
+    </div>
     <main class="page-shell">
       {% block content %}{% endblock %}
     </main>

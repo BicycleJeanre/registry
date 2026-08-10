@@ -95,7 +95,8 @@ def test_homepage_is_mobile_ready(client):
     assert b'name="viewport"' in response.data
     assert b"Changing mat or station" in response.data
     assert "Clothing (0–3 months)".encode() in response.data
-    assert b'aria-level="2"\n            >Clothing</span>' in response.data
+    assert b'aria-level="2"' in response.data
+    assert b'data-i18n-en="Clothing"' in response.data
     assert b"Bath toys" in response.data
     assert b"Play &amp; other" in response.data
     assert b"Care &amp; bath" in response.data
@@ -106,6 +107,13 @@ def test_homepage_is_mobile_ready(client):
     assert "baby shower on October 31st".encode() in response.data
     assert b"84</strong>" in response.data
     assert b"days remaining" in response.data
+    assert b"I can get this" in response.data
+    assert "I’ve got this".encode() not in response.data
+    assert b'id="language-toggle"' in response.data
+    assert b"translations.js" in response.data
+    assert "Emilia-Rose se Geskenkregister".encode() in response.data
+    assert "Versorging en badtyd".encode() in response.data
+    assert "Grootte 2-doeke (ongeveer 3–8 kg)".encode() in response.data
     assert b"Choose something" not in response.data
     assert b"No account is needed" not in response.data
     assert b"Manage my claims" not in response.data
@@ -117,7 +125,8 @@ def test_homepage_is_mobile_ready(client):
     assert b"/items/00000000-0000-4000-8000-000000000099/remove" in response.data
     assert b"/items/00000000-0000-4000-8000-000000000012/remove" not in response.data
     assert b"data-registry-item" in response.data
-    assert b"2</strong> of 6 claimed" in response.data
+    assert b"2</strong>" in response.data
+    assert b"of 6 claimed" in response.data
     assert b"items</span>" not in response.data
     assert b"/items/00000000-0000-4000-8000-000000000086/unclaim" in response.data
 
@@ -143,6 +152,20 @@ def test_claim_records_claim_without_showing_private_code(client, monkeypatch):
     assert b"data-item-id" in response.data
     assert b"Private undo code" not in response.data
     assert b"Undo this claim" not in response.data
+    assert "Dankie dat jy Doekomruilmat of -stasie dek".encode() in response.data
+
+
+def test_item_translation_falls_back_for_visitor_added_items():
+    items = registry_app.add_item_translations(
+        [
+            {
+                "id": "10000000-0000-4000-8000-000000000000",
+                "title": "A visitor suggestion",
+            }
+        ]
+    )
+
+    assert items[0]["title_af"] == "A visitor suggestion"
 
 
 def test_second_single_claim_redirects_with_notice(client, monkeypatch):
