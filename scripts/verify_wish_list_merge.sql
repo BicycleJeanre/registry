@@ -35,12 +35,13 @@ begin
         '00000000-0000-4000-8000-000000000086',
         '00000000-0000-4000-8000-000000000087',
         '00000000-0000-4000-8000-000000000088',
-        '00000000-0000-4000-8000-000000000091'
+        '00000000-0000-4000-8000-000000000091',
+        '00000000-0000-4000-8000-000000000092'
     )
       and is_enabled;
 
-    if v_count <> 28 then
-        raise exception 'Expected 28 enabled merged-list items, found %', v_count;
+    if v_count <> 29 then
+        raise exception 'Expected 29 enabled merged-list items, found %', v_count;
     end if;
 
     select count(*)
@@ -53,7 +54,7 @@ begin
     )
       and category = 'Care and bath'
       and claim_mode = 'multiple'
-      and max_claims = 3
+      and max_claims = 6
       and is_enabled;
 
     if v_count <> 3 then

@@ -39,7 +39,7 @@ def client(monkeypatch):
                 "claim_mode": "multiple",
                 "claim_count": 2,
                 "is_available": True,
-                "max_claims": 3,
+                "max_claims": 6,
                 "display_order": 20,
             },
             {
@@ -117,7 +117,7 @@ def test_homepage_is_mobile_ready(client):
     assert b"/items/00000000-0000-4000-8000-000000000099/remove" in response.data
     assert b"/items/00000000-0000-4000-8000-000000000012/remove" not in response.data
     assert b"data-registry-item" in response.data
-    assert b"2</strong> of 3 claimed" in response.data
+    assert b"2</strong> of 6 claimed" in response.data
     assert b"items</span>" not in response.data
     assert b"/items/00000000-0000-4000-8000-000000000086/unclaim" in response.data
 
