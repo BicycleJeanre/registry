@@ -1,5 +1,6 @@
 import importlib.util
 import pathlib
+import re
 from datetime import date
 
 import pytest
@@ -94,7 +95,7 @@ def test_homepage_is_mobile_ready(client):
     assert b'name="viewport"' in response.data
     assert b"Changing mat or station" in response.data
     assert "Clothing (0–3 months)".encode() in response.data
-    assert b">Clothing</h2>" in response.data
+    assert b'aria-level="2"\n            >Clothing</span>' in response.data
     assert b"Bath toys" in response.data
     assert b"Play &amp; other" in response.data
     assert b"Care &amp; bath" in response.data
@@ -119,6 +120,13 @@ def test_homepage_is_mobile_ready(client):
     assert b"2</strong> of 3 claimed" in response.data
     assert b"items</span>" not in response.data
     assert b"/items/00000000-0000-4000-8000-000000000086/unclaim" in response.data
+
+    details_tags = re.findall(br"<details\b[^>]*>", response.data)
+    assert details_tags
+    assert all(b" open" in tag for tag in details_tags)
+    assert response.data.count(b'<summary class="category-header">') == len(
+        details_tags
+    )
 
 
 def test_claim_records_claim_without_showing_private_code(client, monkeypatch):

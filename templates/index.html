@@ -51,17 +51,26 @@
 
   <section class="category-stack" aria-label="Registry items">
     {% for group in item_groups %}
-      <section
+      <details
         class="category-card"
+        open
         {% if group.allows_custom_items %}id="missed-items"{% endif %}
         aria-labelledby="category-{{ loop.index }}"
       >
-        <header class="category-header">
-          <h2 id="category-{{ loop.index }}">{{ group.title }}</h2>
-          {% if group.note %}
-            <p>{{ group.note }}</p>
-          {% endif %}
-        </header>
+        <summary class="category-header">
+          <span class="category-header-copy">
+            <span
+              class="category-title"
+              id="category-{{ loop.index }}"
+              role="heading"
+              aria-level="2"
+            >{{ group.title }}</span>
+            {% if group.note %}
+              <span class="category-note">{{ group.note }}</span>
+            {% endif %}
+          </span>
+          <span class="category-toggle" aria-hidden="true"></span>
+        </summary>
 
         <div class="item-list">
           {% for item in group["items"] %}
@@ -136,7 +145,7 @@
             </div>
           </form>
         {% endif %}
-      </section>
+      </details>
     {% endfor %}
   </section>
 {% endblock %}
