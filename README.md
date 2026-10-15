@@ -1,106 +1,60 @@
-# Baby Register for Emilia-Rose
+# Emilia-Rose’s Gift Registry
 
-A small anonymous baby registry that supports:
+A mobile-first, English/Afrikaans baby-shower registry deployed as a static GitHub Pages site with Firebase Anonymous Authentication and Cloud Firestore.
 
-- single-claim items, such as a pram
-- multi-claim items, such as nappies
-- device-local unclaim controls with no personal details
-- visitor-added suggestions stored as single-claim items
-- a mobile-first interface
-- complete local setup and teardown with Podman Compose
+## Current behaviour
 
-## Run locally
+- The checked-in catalogue contains the 75 final active items recovered from the PostgreSQL migrations.
+- Claims begin empty because the retired server’s Docker volume could not be recovered.
+- Single items accept one claim globally.
+- Unlimited items accept one claim per anonymous browser identity.
+- Limited items use fixed Firestore claim slots, preventing claims above the configured limit.
+- Visitors can undo only their own claims.
+- Visitor suggestions can be removed only by their creator and only while unclaimed.
+- No names, email addresses, or other personal details are requested.
 
-Make sure the Podman machine is running:
+## Local development
 
-```sh
-podman machine start
-```
-
-From this directory, build and start the stack:
+Copy `.env.example` to `.env.local` and add the Firebase web configuration, then:
 
 ```sh
-podman compose up --build --detach
+npm install
+npm run dev
 ```
 
-Open <http://localhost:8080>.
-
-To use another local port:
+Build and run local tests:
 
 ```sh
-REGISTRY_PORT=8081 podman compose up --build --detach
+npm test
+npm run test:rules
+npm run build
 ```
 
-The bind address defaults to `0.0.0.0` for local phone testing. Set
-`REGISTRY_BIND_ADDRESS=127.0.0.1` when placing the app behind a reverse proxy.
+The Firestore rules test requires Java for the Firebase emulator.
 
-## Verify the stack
+## Firebase setup
 
-The smoke test uses only synthetic registry entries and prints pass/fail
-results:
+1. Use the dedicated Firebase project `emilia-rose-registry` and its registered web application.
+2. Anonymous Authentication is enabled through `firebase.json`.
+3. The standard, free-tier default Cloud Firestore database is in `nam5` with deletion protection enabled.
+4. `firestore.rules` and `firestore.indexes.json` are deployed through the Firebase CLI.
+5. Add the four `VITE_FIREBASE_*` values as GitHub Actions repository secrets.
+6. Add `bicyclejeanre.github.io` and `registry.bicycleclouds.com` to Firebase Authentication’s authorized domains.
 
-```sh
-python3 scripts/smoke_test.py
+The Firebase web configuration identifies the Firebase project; it is not a service-account secret. Authorization is enforced by `firestore.rules`.
+
+## GitHub Pages
+
+The workflow in `.github/workflows/deploy-pages.yml` tests, builds, and deploys `dist/` whenever `main` changes. `public/CNAME` preserves the custom domain in every deployment.
+
+Point the DNS record to GitHub Pages with:
+
+```text
+registry.bicycleclouds.com CNAME BicycleJeanre.github.io
 ```
 
-The fast application tests can be run in a temporary virtual environment:
+Do not retain the old `A` record once the GitHub Pages custom domain is configured.
 
-```sh
-python3 -m venv .venv
-.venv/bin/pip install -r requirements-dev.txt
-.venv/bin/pytest -q
-```
+## Legacy source
 
-Inspect container status or logs:
-
-```sh
-podman compose ps
-podman compose logs app
-```
-
-## Change the starter items
-
-The starter list is sourced from `../newborn-buying-checklist.md`. Edit
-`db/002-buying-checklist-items.sql` to add or update registry entries. Each item
-has a `claim_mode`:
-
-- `single`: only one active claim is allowed
-- `multiple`: any number of active claims is allowed
-
-The initialization script runs only when Postgres creates a new data volume.
-During local development, apply starter-item changes by performing the complete
-teardown below and starting the stack again.
-
-## Stop or remove it
-
-Stop the containers while retaining the local database:
-
-```sh
-podman compose down
-```
-
-Remove the containers and the registry database volume:
-
-```sh
-podman compose down --volumes --remove-orphans
-```
-
-The second command permanently removes local registry items and claims stored
-in this stack. It does not affect other Podman projects.
-
-## Current architecture
-
-The `app` container serves the HTML, CSS, JavaScript, and three small actions:
-list items, claim an item, and undo a claim. The `database` container is
-available only on the private Compose network; it has no host port.
-The app connects using a constrained local role that can read the public item
-view and execute only the claim and undo functions. The checked-in credentials
-are deliberately local-only and must be replaced before any remote deployment.
-
-Pyramid Demo deployment files and the isolated Nginx virtual host are in
-`deployment/`.
-
-Postgres serializes claims per item inside `registry.create_claim`, preventing
-two simultaneous visitors from both claiming a single-claim item. Undo tokens
-are generated randomly by the app, and only SHA-256 token hashes are stored in
-Postgres.
+The former Flask/PostgreSQL implementation and its migrations remain in this directory as recovery history. Vite builds only the new `index.html`, `src/`, and imported static assets.

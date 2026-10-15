@@ -1,0 +1,753 @@
+[
+  {
+    "id": "22222222-2222-4222-8222-222222222222",
+    "title": "Baby monitor",
+    "description": "A simple audio or video monitor.",
+    "category": "Nursery",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 20,
+    "titleAf": "Baba-monitor"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000010",
+    "title": "Sleep sacks",
+    "description": "Wearable blankets for sleep instead of loose crib blankets.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 50,
+    "titleAf": "Slaapsakke"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000044",
+    "title": "Swaddles",
+    "description": "Lightweight, breathable swaddles suitable for a newborn.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 55,
+    "titleAf": "Inwikkeldoeke"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000051",
+    "title": "Nightlight",
+    "description": "A dim, warm nightlight for feeds and changes without bright overhead light.",
+    "category": "Sleep",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 70,
+    "titleAf": "Nagliggie"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000055",
+    "title": "Breastfeeding cover",
+    "description": "A light, breathable cover for feeding when wanted.",
+    "category": "Feeding",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 100,
+    "titleAf": "Borsvoedingsdoek"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000056",
+    "title": "Milk collectors",
+    "description": "Comfortable milk collectors or catchers for breastfeeding.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 110,
+    "titleAf": "Melkopvangers"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000057",
+    "title": "Breast milk freezer bags",
+    "description": "Leak-resistant bags made for freezing and labelling expressed milk.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 120,
+    "titleAf": "Borsmelk-vriessakkies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000083",
+    "title": "Nursing pillow",
+    "description": "A supportive feeding pillow with a washable cover.",
+    "category": "Feeding",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 130,
+    "titleAf": "Voedingskussing"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000015",
+    "title": "Soft towels with hood",
+    "description": "Three soft hooded towels are useful.",
+    "category": "Bath and care",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 140,
+    "titleAf": "Sagte handdoeke met kappies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000016",
+    "title": "Baby nail grooming kit",
+    "description": "A gentle nail file or newborn-safe grooming kit.",
+    "category": "Bath and care",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 150,
+    "titleAf": "Baba-naelversorgingstel"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000086",
+    "title": "Size 2 nappies (approximately 3–8 kg)",
+    "description": "Please check the brand sizing. Up to three claims are welcome.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": 6,
+    "displayOrder": 200,
+    "titleAf": "Grootte 2-doeke (ongeveer 3–8 kg)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000087",
+    "title": "Size 3 nappies (approximately 7–13 kg)",
+    "description": "Please check the brand sizing. Up to three claims are welcome.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": 6,
+    "displayOrder": 201,
+    "titleAf": "Grootte 3-doeke (ongeveer 7–13 kg)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000088",
+    "title": "Size 4 nappies (approximately 9–14 kg)",
+    "description": "Please check the brand sizing. Up to three claims are welcome.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": 6,
+    "displayOrder": 202,
+    "titleAf": "Grootte 4-doeke (ongeveer 9–14 kg)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000092",
+    "title": "Baby wipe dispenser",
+    "description": "A practical baby wipe dispenser. Up to three are welcome.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": 3,
+    "displayOrder": 203,
+    "titleAf": "Baba-afveedoekiehouer"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000020",
+    "title": "Breast pads",
+    "description": "Disposable or washable breast pads if needed.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 210,
+    "titleAf": "Borskompressies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000029",
+    "title": "Bum cream",
+    "description": "A simple barrier cream for redness and nappy changes.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 220,
+    "titleAf": "Boudjiesalf"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000030",
+    "title": "Fragrance-free washing powder",
+    "description": "A gentle fragrance-free washing powder for baby clothes and bedding.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 230,
+    "titleAf": "Geurvrye waspoeier"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000058",
+    "title": "Baby oil",
+    "description": "One gentle, baby-safe oil for skin care or massage.",
+    "category": "Care and bath",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 240,
+    "titleAf": "Baba-olie"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000059",
+    "title": "Baby bath or bath seat",
+    "description": "A stable baby bath or age-appropriate bathing support.",
+    "category": "Care and bath",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 250,
+    "titleAf": "Bababad of badsitplek"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000024",
+    "title": "Baby bottles",
+    "description": "Start with a small number until the baby’s bottle preference is clear.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 250,
+    "titleAf": "Bababottels"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000060",
+    "title": "Digital thermometer",
+    "description": "A reliable digital thermometer suitable for babies.",
+    "category": "Care and bath",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 260,
+    "titleAf": "Digitale termometer"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000025",
+    "title": "Extra bottle teats",
+    "description": "Extra bottle teats that match the chosen bottle brand.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 260,
+    "titleAf": "Ekstra bottelspene"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000052",
+    "title": "Extra slow-flow newborn bottle teats",
+    "description": "Extra newborn slow-flow teats that match the chosen bottle brand.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 265,
+    "titleAf": "Ekstra stadigevloei-bottelspene vir pasgeborenes"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000026",
+    "title": "Bottle brush",
+    "description": "A dedicated brush used only for bottles and feeding equipment.",
+    "category": "Feeding",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 270,
+    "titleAf": "Bottelborsel"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000054",
+    "title": "Microwave bottle sterilizer",
+    "description": "A microwave-safe sterilizer for bottles, teats, and feeding parts.",
+    "category": "Feeding",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 275,
+    "titleAf": "Mikrogolf-bottelsteriliseerder"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000062",
+    "title": "Cotton pads or buds (external use only)",
+    "description": "For gentle external clean-up only; never insert into baby’s ears or nose.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 280,
+    "titleAf": "Katoenblokkies of wattepluisies (slegs vir uitwendige gebruik)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000027",
+    "title": "Dummies or pacifiers",
+    "description": "One-piece, age-appropriate dummies if the baby takes to them.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 280,
+    "titleAf": "Fopspene"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000017",
+    "title": "Baby comb and brush set",
+    "description": "A soft baby brush and gentle comb for scalp and hair care.",
+    "category": "Care and bath",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 290,
+    "titleAf": "Baba-kam-en-borselstel"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000028",
+    "title": "Bibs",
+    "description": "Useful for feeds, although burp cloths may be handier in the first month.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 290,
+    "titleAf": "Slabbetjies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000076",
+    "title": "Nappy organiser",
+    "description": "A simple basket or caddy for nappies and changing supplies.",
+    "category": "Care and bath",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 295,
+    "titleAf": "Doekorganiseerder"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000091",
+    "title": "Mild baby shampoo",
+    "description": "A mild, fragrance-free shampoo and hair wash.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 296,
+    "titleAf": "Sagte babasjampoe"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000063",
+    "title": "Babygrows",
+    "description": "Soft babygrows in useful sizes beyond newborn.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 300,
+    "titleAf": "Babygrows"
+  },
+  {
+    "id": "55555555-5555-4555-8555-555555555555",
+    "title": "Burp cloths or muslin cloths",
+    "description": "Soft cloths for feeds, spit-up, and everyday clean-up.",
+    "category": "Feeding",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 300,
+    "titleAf": "Oprispdoeke of moeseliendoeke"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000033",
+    "title": "0–3 month summer clothes",
+    "description": "Light everyday clothing and sleepwear in 0–3 month sizes.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 310,
+    "titleAf": "0–3 maande somerklere"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000034",
+    "title": "3–6 month autumn clothes",
+    "description": "Layerable everyday clothing and sleepwear in 3–6 month sizes.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 320,
+    "titleAf": "3–6 maande herfsklere"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000035",
+    "title": "6–12 month winter and spring clothes",
+    "description": "Warm and layerable clothing in 6–12 month sizes for winter and spring.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 330,
+    "titleAf": "6–12 maande winter- en lenteklere"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000047",
+    "title": "Aqueous cream for baby (non-scented)",
+    "description": "A gentle, non-scented aqueous cream for baby skin.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 330,
+    "titleAf": "Aqueous room vir baba (ongegeur)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000048",
+    "title": "Nasal aspirator",
+    "description": "A simple baby-safe nasal aspirator that is easy to clean.",
+    "category": "Care and bath",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 340,
+    "titleAf": "Neusaspirator"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000049",
+    "title": "Baby washcloths",
+    "description": "Soft washcloths for bath time and gentle clean-ups.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 350,
+    "titleAf": "Baba-waslappies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000064",
+    "title": "Baby mittens",
+    "description": "Soft mittens for cool weather, if needed.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 360,
+    "titleAf": "Baba-handskoentjies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000065",
+    "title": "Jerseys, cardigans or jackets",
+    "description": "Warm, easy-to-layer outerwear in useful baby sizes.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 370,
+    "titleAf": "Truie, cardigans of baadjies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000066",
+    "title": "Bedding for bassinet or cot",
+    "description": "Safe, snug bedding made for the bassinet or cot; no loose sleep accessories.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 400,
+    "titleAf": "Beddegoed vir wieg of kot"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000008",
+    "title": "Waterproof cover for standard cot mattress (approximately 118 × 56 cm)",
+    "description": "A snug waterproof cover for the common standard cot mattress size. Please confirm the exact mattress dimensions before buying.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 401,
+    "titleAf": "Waterdigte oortreksel vir standaard-kotmatras (ongeveer 118 × 56 cm)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000009",
+    "title": "Fitted sheets for standard cot mattress (approximately 118 × 56 cm)",
+    "description": "Snug fitted sheets for the common standard cot mattress size. Please confirm the exact mattress dimensions before buying.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 402,
+    "titleAf": "Paslakens vir standaard-kotmatras (ongeveer 118 × 56 cm)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000094",
+    "title": "Waterproof cover for standard camp-cot mattress (approximately 970 × 670 mm)",
+    "description": "A snug waterproof cover for the standard camp-cot mattress size. Please confirm the exact mattress dimensions before buying.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 403,
+    "titleAf": "Waterdigte oortreksel vir standaard-kampkotmatras (ongeveer 970 × 670 mm)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000095",
+    "title": "Fitted sheets for standard camp-cot mattress (approximately 970 × 670 mm)",
+    "description": "Snug fitted sheets for the standard camp-cot mattress size. Please confirm the exact mattress dimensions before buying.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 404,
+    "titleAf": "Paslakens vir standaard-kampkotmatras (ongeveer 970 × 670 mm)"
+  },
+  {
+    "id": "44444444-4444-4444-8444-444444444444",
+    "title": "Non-fragranced baby wipes (pure water preferred)",
+    "description": "Non-fragranced baby wipes, preferably made with pure water.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 410,
+    "titleAf": "Ongegeurde baba-afveedoekies (suiwer water verkies)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000011",
+    "title": "Baby blankets (for supervised use)",
+    "description": "Soft blankets for cuddles, floor time, or outings; not for unattended cot sleep.",
+    "category": "Sleep",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 440,
+    "titleAf": "Babakomberse (vir gebruik onder toesig)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000036",
+    "title": "Baby socks",
+    "description": "Soft baby socks in a mix of early sizes.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 440,
+    "titleAf": "Babasokkies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000031",
+    "title": "Mild baby body wash",
+    "description": "A mild fragrance-free body wash to use sparingly when plain water is not enough.",
+    "category": "Care and bath",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 440,
+    "titleAf": "Sagte babalyfwasmiddel"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000045",
+    "title": "Baby beanies",
+    "description": "Soft baby beanies in early sizes for cool outings.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 445,
+    "titleAf": "Babamussies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000037",
+    "title": "Soft-soled baby shoes",
+    "description": "Comfortable, non-restrictive soft-soled shoes for when they are useful.",
+    "category": "Clothing",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 450,
+    "titleAf": "Babaskoentjies met sagte sole"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000038",
+    "title": "Bath toys",
+    "description": "Easy-to-clean bath toys without hard-to-dry cavities.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 460,
+    "titleAf": "Badspeelgoed"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000039",
+    "title": "Soft plushies",
+    "description": "Soft, washable plush toys suitable for a baby.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 470,
+    "titleAf": "Sagte speelgoed"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000040",
+    "title": "Plastic toys",
+    "description": "Sturdy, baby-safe plastic toys that are easy to wipe clean.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 480,
+    "titleAf": "Plastiekspeelgoed"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000041",
+    "title": "Educational toys",
+    "description": "Age-appropriate toys for early learning, matching, stacking, and discovery.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 490,
+    "titleAf": "Opvoedkundige speelgoed"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000014",
+    "title": "Nappy bag",
+    "description": "Any practical, organized bag for changes and outings.",
+    "category": "Out and about",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 500,
+    "titleAf": "Doeksak"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000042",
+    "title": "Rattles and sensory toys",
+    "description": "Baby-safe rattles and textured sensory toys for supervised play.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 500,
+    "titleAf": "Rattels en sensoriese speelgoed"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000012",
+    "title": "Changing mat or station",
+    "description": "A safe, wipe-clean changing surface. A simple mat works well.",
+    "category": "Out and about",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 510,
+    "titleAf": "Doekomruilmat of -stasie"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000043",
+    "title": "Teething toys",
+    "description": "Easy-to-clean teething toys made for young babies.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 510,
+    "titleAf": "Tandekry-speelgoed"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000050",
+    "title": "Activity playmat",
+    "description": "A padded activity mat for supervised floor play and tummy time.",
+    "category": "Play and other",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 520,
+    "titleAf": "Aktiwiteitspeelmat"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000018",
+    "title": "Secure mosquito net",
+    "description": "Only if needed and able to stay secure, outside baby’s reach, without loose netting.",
+    "category": "Out and about",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 520,
+    "titleAf": "Veilige muskietnet"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000067",
+    "title": "Pacifier holders",
+    "description": "Short, baby-safe pacifier holders for supervised use.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 620,
+    "titleAf": "Fopspeenhouers"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000068",
+    "title": "Baby books",
+    "description": "Board books, cloth books, or gentle story books for baby.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 630,
+    "titleAf": "Bababoeke"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000069",
+    "title": "Baby clothes hangers",
+    "description": "Small hangers for organising baby clothing.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 640,
+    "titleAf": "Babaklerehangers"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000070",
+    "title": "Storage baskets",
+    "description": "Useful baskets for organising baby essentials.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 650,
+    "titleAf": "Bêremandjies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000071",
+    "title": "Baby-store gift vouchers",
+    "description": "A flexible option for later needs or anything the registry missed.",
+    "category": "Play and other",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 660,
+    "titleAf": "Baba-winkelgeskenkbewyse"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000072",
+    "title": "My First Year photo album",
+    "description": "A baby memory or photo book for the first year.",
+    "category": "Play and other",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 670,
+    "titleAf": "My Eerste Jaar-fotoalbum"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000073",
+    "title": "Milestone cards",
+    "description": "Cards for recording baby milestones and monthly photos.",
+    "category": "Play and other",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 680,
+    "titleAf": "Mylpaalkaartjies"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000074",
+    "title": "Music box or cot mobile",
+    "description": "A gentle music box or securely fitted cot mobile for supervised enjoyment.",
+    "category": "Play and other",
+    "claimMode": "single",
+    "maxClaims": null,
+    "displayOrder": 690,
+    "titleAf": "Musiekboks of kotmobiel"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000021",
+    "title": "Nipple cream",
+    "description": "Baby-safe lanolin or another clinician-approved option.",
+    "category": "For Mom",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 710,
+    "titleAf": "Tepelroom"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000019",
+    "title": "Nursing bras (large and extra-large)",
+    "description": "Comfortable nursing bras in large and extra-large sizes if breastfeeding.",
+    "category": "For Mom",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 710,
+    "titleAf": "Borsvoedingsbras (groot en ekstra groot)"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000077",
+    "title": "Comfortable home clothes",
+    "description": "Soft, comfortable clothing for the early days at home.",
+    "category": "For Mom",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 720,
+    "titleAf": "Gemaklike huisklere"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000082",
+    "title": "A little relaxation gift for Mom",
+    "description": "A thoughtful comfort or relaxation gift for the early weeks.",
+    "category": "For Mom",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 770,
+    "titleAf": "’n Klein ontspanningsgeskenk vir Mamma"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000085",
+    "title": "Sunscreen for Mom",
+    "description": "A practical sunscreen Mom already likes for outings.",
+    "category": "For Mom",
+    "claimMode": "multiple",
+    "maxClaims": null,
+    "displayOrder": 780,
+    "titleAf": "Sonskerm vir Mamma"
+  }
+]
+

@@ -214,6 +214,17 @@ h1 {
   background: var(--soft-green);
 }
 
+.notice-neutral {
+  color: var(--muted);
+  background: rgb(255 253 247 / 88%);
+  border: 1px solid var(--line);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
 .category-card,
 .result-card {
   background: var(--paper);
