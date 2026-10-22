@@ -39,21 +39,13 @@ The Firestore rules test requires Java for the Firebase emulator.
 3. The standard, free-tier default Cloud Firestore database is in `nam5` with deletion protection enabled.
 4. `firestore.rules` and `firestore.indexes.json` are deployed through the Firebase CLI.
 5. Add the four `VITE_FIREBASE_*` values as GitHub Actions repository secrets.
-6. Add `bicyclejeanre.github.io` and `registry.bicycleclouds.com` to Firebase Authentication’s authorized domains.
+6. Add `bicyclejeanre.github.io` to Firebase Authentication’s authorized domains.
 
 The Firebase web configuration identifies the Firebase project; it is not a service-account secret. Authorization is enforced by `firestore.rules`.
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/deploy-pages.yml` tests, builds, and deploys `dist/` whenever `main` changes. `public/CNAME` preserves the custom domain in every deployment.
-
-Point the DNS record to GitHub Pages with:
-
-```text
-registry.bicycleclouds.com CNAME BicycleJeanre.github.io
-```
-
-Do not retain the old `A` record once the GitHub Pages custom domain is configured.
+The workflow in `.github/workflows/deploy-pages.yml` tests, builds, and deploys `dist/` under the `/registry/` project path whenever `main` changes. The public site is `https://bicyclejeanre.github.io/registry/`.
 
 ## Legacy source
 

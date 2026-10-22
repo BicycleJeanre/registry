@@ -32,7 +32,7 @@ jobs:
       - run: npm run test:rules
       - name: Build configured registry
         env:
-          BASE_PATH: /
+          BASE_PATH: /registry/
           VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
           VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
           VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
